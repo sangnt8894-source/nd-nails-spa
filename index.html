@@ -633,16 +633,16 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
 
   message.innerText = "Submitting your booking...";
 
-  fetch("https://script.google.com/macros/s/AKfycbxMlA7IasvVUfZaKEkfJJWGYhFswESytufVboobsNKPK19Gi4POVYyi99auoGevuNMV/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxM1A7IasVVUfZaKEkfJJWGYhFsWESytufVboobsNKPK19Gi4POWYj99AuoGevuNM/exec", {
     method: "POST",
+    mode: "no-cors",
     body: new FormData(form)
   })
-  .then(response => response.text())
-  .then(data => {
+  .then(() => {
     message.innerText = "Thank you! Your booking request has been submitted.";
     form.reset();
   })
-  .catch(error => {
+  .catch(() => {
     message.innerText = "Sorry, something went wrong. Please call (305) 226-0678.";
   });
 });
