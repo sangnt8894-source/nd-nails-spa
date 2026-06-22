@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ND Nails & Spa | Miami Nail Salon</title>
+
+<style>
+:root{
+  --pink:#f76f9a;
+  --coral:#ff7f73;
+  --teal:#1fc7c9;
+  --green:#1f8f6b;
+  --gold:#d7a84f;
+  --cream:#fff7ef;
+  --white:#fff;
+  --dark:#17343a;
+  --gray:#667477;
+  --shadow:0 20px 50px rgba(0,0,0,.12);
+  --radius:24px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,sans-serif;
+  background:var(--cream);
+  color:var(--dark);
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+img{width:100%;display:block;object-fit:cover}
+.container{width:min(1200px,92%);margin:auto}
+.section{padding:90px 0}
+
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:999px;
+  font-weight:800;
+  transition:.3s;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--pink),var(--teal));
+  color:white;
+  box-shadow:0 12px 28px rgba(31,199,201,.35);
+}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-outline{border:2px solid white;color:white}
+
+.section-title{text-align:center;margin-bottom:50px}
+.section-title span{
+  color:var(--pink);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:800;
+  font-size:14px;
+}
+.section-title h2{
+  font-family:Georgia,serif;
+  font-size:clamp(34px,5vw,56px);
+  margin-top:8px;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  box-shadow:0 8px 28px rgba(0,0,0,.06);
+}
+nav{
+  height:82px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-family:Georgia,serif;
+  font-size:28px;
+  font-weight:900;
+}
+.logo span{color:var(--pink)}
+.menu{
+  display:flex;
+  gap:22px;
+  font-size:14px;
+  font-weight:800;
+}
+.menu a:hover{color:var(--pink)}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  padding-top:82px;
+  display:flex;
+  align-items:center;
+  color:white;
+  background:
+    linear-gradient(rgba(20,45,50,.35),rgba(20,45,50,.65)),
+    url("https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=2000&q=80");
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  bottom:-1px;
+  left:0;
+  width:100%;
+  height:120px;
+  background:linear-gradient(to top,var(--cream),transparent);
+}
+.hero-content{position:relative;z-index:2;max-width:760px}
+.hero small{
+  color:#fff0bd;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-weight:900;
+}
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:clamp(50px,8vw,90px);
+  line-height:1.05;
+  margin:18px 0;
+}
+.hero p{
+  font-size:21px;
+  max-width:660px;
+  margin-bottom:30px;
+}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+
+/* PROMO */
+.promo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+.promo-card{
+  background:white;
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+.promo-card h3{font-size:22px;margin-bottom:8px}
+.promo-card strong{font-size:30px;color:var(--pink)}
+
+/* SERVICES */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+.service-card{
+  background:white;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.service-card img{height:300px}
+.service-body{padding:30px}
+.service-body h3{
+  font-family:Georgia,serif;
+  font-size:30px;
+  margin-bottom:16px;
+}
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:10px 0;
+  border-bottom:1px dashed #d8d8d8;
+  color:var(--gray);
+}
+.price-row b{
+  color:var(--dark);
+  white-space:nowrap;
+}
+
+/* GALLERY */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.gallery-grid img{
+  height:260px;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+.gallery-grid img:hover{transform:scale(1.04)}
+
+/* WHY */
+.why{
+  background:
+    linear-gradient(rgba(255,255,255,.88),rgba(255,255,255,.88)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80");
+  background-size:cover;
+  background-position:center;
+}
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+.why-card{
+  background:white;
+  border-radius:var(--radius);
+  text-align:center;
+  padding:34px 22px;
+  box-shadow:var(--shadow);
+}
+.why-card .icon{font-size:42px;margin-bottom:12px}
+
+/* BOOKING */
+.booking{
+  background:linear-gradient(135deg,var(--teal),var(--pink));
+  color:white;
+}
+.booking-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.booking h2{
+  font-family:Georgia,serif;
+  font-size:50px;
+  line-height:1.1;
+  margin:12px 0;
+}
+form{
+  background:white;
+  color:var(--dark);
+  padding:34px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+input,select,textarea{
+  width:100%;
+  padding:15px 16px;
+  margin-bottom:14px;
+  border:1px solid #ddd;
+  border-radius:14px;
+  font-size:15px;
+}
+textarea{min-height:110px}
+button{border:none;width:100%;font-size:16px;cursor:pointer}
+
+/* CONTACT */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+.contact-box{
+  background:white;
+  padding:34px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.contact-box p{margin:8px 0}
+.map{
+  min-height:390px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.map iframe{width:100%;height:100%;border:0}
+
+.floating-call{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:9999;
+  background:linear-gradient(135deg,var(--pink),var(--coral));
+  color:white;
+  padding:15px 22px;
+  border-radius:999px;
+  font-weight:900;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+footer{
+  background:var(--dark);
+  color:white;
+  text-align:center;
+  padding:30px 0;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .menu{display:none}
+  .promo-grid,
+  .services-grid,
+  .gallery-grid,
+  .why-grid,
+  .booking-wrap,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+  .hero{text-align:center}
+  .hero-buttons{justify-content:center}
+  .service-card img,.gallery-grid img{height:230px}
+}
+</style>
+</head>
+
+<body>
+
+<a href="tel:+13052260678" class="floating-call">📞 Call Now</a>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">ND <span>Nails</span> & Spa</div>
+      <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#promos">Promotions</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#booking">Booking</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <small>Professional Nail Care & Design</small>
+      <h1>ND Nails & Spa</h1>
+      <p>Nails • Skin Care • Waxing • Eyelashes<br>Appointments & Walk-ins Welcome in Miami.</p>
+      <div class="hero-buttons">
+        <a href="tel:+13052260678" class="btn btn-primary">Call (305) 226-0678</a>
+        <a href="#services" class="btn btn-outline">View Price List</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="promos">
+  <div class="container">
+    <div class="section-title">
+      <span>Special Offers</span>
+      <h2>Current Promotions</h2>
+    </div>
+
+    <div class="promo-grid">
+      <div class="promo-card">
+        <h3>New Client Special</h3>
+        <p>First visit discount</p>
+        <strong>10% OFF</strong>
+      </div>
+      <div class="promo-card">
+        <h3>Mani + Pedi</h3>
+        <p>Relaxing combo package</p>
+        <strong>Special</strong>
+      </div>
+      <div class="promo-card">
+        <h3>Birthday Month</h3>
+        <p>Celebrate with beauty</p>
+        <strong>$15 OFF</strong>
+      </div>
+      <div class="promo-card">
+        <h3>Refer A Friend</h3>
+        <p>Get reward credit</p>
+        <strong>$10</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-title">
+      <span>Our Menu</span>
+      <h2>Services & Price List</h2>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1400&q=80">
+        <div class="service-body">
+          <h3>Manicure & Pedicure</h3>
+          <div class="price-row"><span>Manicure</span><b>$17</b></div>
+          <div class="price-row"><span>Pedicure</span><b>$28</b></div>
+          <div class="price-row"><span>Manicure & Pedicure</span><b>$45</b></div>
+          <div class="price-row"><span>Gel Manicure</span><b>$32</b></div>
+          <div class="price-row"><span>Gel Manicure + Pedicure</span><b>$60</b></div>
+          <div class="price-row"><span>Gel Pedicure</span><b>$43</b></div>
+          <div class="price-row"><span>Gel Mani + Gel Pedi</span><b>$75</b></div>
+          <div class="price-row"><span>Deluxe Spa Pedicure</span><b>$33 / $38 / $43 / $48 / $58</b></div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=1400&q=80">
+        <div class="service-body">
+          <h3>Full Set</h3>
+          <div class="price-row"><span>Regular Full Set</span><b>$35</b></div>
+          <div class="price-row"><span>Regular Refill</span><b>$30</b></div>
+          <div class="price-row"><span>Gel Clear Full Set</span><b>$40</b></div>
+          <div class="price-row"><span>Color Acrylic</span><b>$45</b></div>
+          <div class="price-row"><span>Full Set Toes</span><b>$40</b></div>
+          <div class="price-row"><span>Gel Color Full Set</span><b>$45</b></div>
+          <div class="price-row"><span>Gel Color Refill</span><b>$40</b></div>
+          <div class="price-row"><span>Pink & White Full Set</span><b>$60</b></div>
+          <div class="price-row"><span>Pink & White Refill</span><b>$55</b></div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=80">
+        <div class="service-body">
+          <h3>Healthy Nails / Dip Powder</h3>
+          <div class="price-row"><span>Dip Without Tips</span><b>$40</b></div>
+          <div class="price-row"><span>Dip With Tips</span><b>$45</b></div>
+          <div class="price-row"><span>Dip French Without Tips</span><b>$50</b></div>
+          <div class="price-row"><span>Dip French With Tips</span><b>$55</b></div>
+          <div class="price-row"><span>Ombre Dip Nails</span><b>$55 Up</b></div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1400&q=80">
+        <div class="service-body">
+          <h3>Liquid Gel / Ombre / Gel X</h3>
+          <div class="price-row"><span>Liquid Full Set with Gel Color</span><b>$65</b></div>
+          <div class="price-row"><span>Liquid Refill</span><b>$55</b></div>
+          <div class="price-row"><span>Ombre Full Set</span><b>$60</b></div>
+          <div class="price-row"><span>APRES / Gel X Nails</span><b>$55</b></div>
+          <div class="price-row"><span>Includes Shape, Length, Gel Color</span><b>Included</b></div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80">
+        <div class="service-body">
+          <h3>Eyelashes Service</h3>
+          <div class="price-row"><span>Eyelash Extension Full Set</span><b>$30 / $40 Up</b></div>
+          <div class="price-row"><span>Eyelash Refill</span><b>$25 Up</b></div>
+          <div class="price-row"><span>Individual Eye Lashes Full Set</span><b>$120 Up</b></div>
+          <div class="price-row"><span>Individual Eye Lashes Fill</span><b>$50 Up</b></div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=80">
+        <div class="service-body">
+          <h3>Facials & Skin Care</h3>
+          <div class="price-row"><span>Anti Aging Facial & Eye Treatment</span><b>$60</b></div>
+          <div class="price-row"><span>Refreshing Facial</span><b>$30</b></div>
+          <div class="price-row"><span>Age Loc Facial</span><b>$45</b></div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=1400&q=80">
+        <div class="service-body">
+          <h3>Waxing Service</h3>
+          <div class="price-row"><span>Eyebrows</span><b>$12</b></div>
+          <div class="price-row"><span>Lips</span><b>$8</b></div>
+          <div class="price-row"><span>Chin</span><b>$8 Up</b></div>
+          <div class="price-row"><span>Eyebrows Tint</span><b>$20</b></div>
+          <div class="price-row"><span>Full Legs</span><b>$70 Up</b></div>
+          <div class="price-row"><span>Half Leg Upper Or Lower</span><b>$40 Up</b></div>
+          <div class="price-row"><span>Full Back</span><b>$50 Up</b></div>
+          <div class="price-row"><span>Chest</span><b>$40 Up</b></div>
+          <div class="price-row"><span>Under Arms</span><b>$25 Up</b></div>
+          <div class="price-row"><span>Full Arms</span><b>$35 Up</b></div>
+          <div class="price-row"><span>Bikini Line</span><b>$35 Up</b></div>
+          <div class="price-row"><span>Thong Bikini</span><b>$45 Up</b></div>
+          <div class="price-row"><span>Brazilian Bikini</span><b>$55 Up</b></div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1400&q=80">
+        <div class="service-body">
+          <h3>Additional Services</h3>
+          <div class="price-row"><span>Polish Change Hands</span><b>$14</b></div>
+          <div class="price-row"><span>Polish Change Feet</span><b>$15</b></div>
+          <div class="price-row"><span>Cut Down</span><b>$2</b></div>
+          <div class="price-row"><span>Broken Nails</span><b>$4 - $6</b></div>
+          <div class="price-row"><span>Soak Off</span><b>$8 - $12</b></div>
+          <div class="price-row"><span>French Polish</span><b>$5 - $10</b></div>
+          <div class="price-row"><span>Hand Design</span><b>$5 Up</b></div>
+          <div class="price-row"><span>Paraffin Treatment</span><b>$12 Up</b></div>
+          <div class="price-row"><span>Length Long Nails</span><b>$5 Up</b></div>
+          <div class="price-row"><span>Nail Shape</span><b>$5</b></div>
+          <div class="price-row"><span>Gel Polish Change</span><b>$25</b></div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1400&q=80">
+        <div class="service-body">
+          <h3>Kids Service Under 13</h3>
+          <div class="price-row"><span>Manicure</span><b>$15</b></div>
+          <div class="price-row"><span>Pedicure</span><b>$25</b></div>
+          <div class="price-row"><span>Manicure & Pedicure</span><b>$40</b></div>
+          <div class="price-row"><span>Kid Gel Manicure</span><b>$30</b></div>
+          <div class="price-row"><span>Kid Color Change Hands / Feet</span><b>$12 each</b></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-title">
+      <span>Our Work</span>
+      <h2>Nail Gallery</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80">
+      <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=80">
+      <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=80">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80">
+      <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80">
+      <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80">
+      <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=900&q=80">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+    </div>
+  </div>
+</section>
+
+<section class="section why">
+  <div class="container">
+    <div class="section-title">
+      <span>Why Choose Us</span>
+      <h2>Relax, Refresh & Shine</h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card"><div class="icon">🌴</div><h3>Miami Vibes</h3><p>Fresh tropical beauty atmosphere.</p></div>
+      <div class="why-card"><div class="icon">💅</div><h3>Full Beauty Services</h3><p>Nails, waxing, eyelashes and skin care.</p></div>
+      <div class="why-card"><div class="icon">🧼</div><h3>Clean & Comfortable</h3><p>Relaxing service with professional care.</p></div>
+      <div class="why-card"><div class="icon">⭐</div><h3>Walk-ins Welcome</h3><p>Appointments and walk-ins are welcome.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section booking" id="booking">
+  <div class="container">
+    <div class="booking-wrap">
+      <div>
+        <span>Book Online</span>
+        <h2>Make Your Appointment</h2>
+        <p>Call us directly or send your booking request. Walk-ins are welcome.</p>
+        <br>
+        <a href="tel:+13052260678" class="btn btn-outline">Call Now</a>
+      </div>
+
+      <form id="bookingForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="tel" name="phone" placeholder="Phone Number" required>
+
+  <select name="service" required>
+    <option value="">Select Service</option>
+    <option>Manicure & Pedicure</option>
+    <option>Full Set</option>
+    <option>Dip Powder</option>
+    <option>Gel X Nails</option>
+    <option>Eyelashes</option>
+    <option>Facial / Skin Care</option>
+    <option>Waxing</option>
+    <option>Kids Service</option>
+  </select>
+
+  <input type="date" name="date" required>
+  <input type="time" name="time" required>
+  <textarea name="notes" placeholder="Notes / Special Request"></textarea>
+
+  <button class="btn btn-primary" type="submit">Submit Booking</button>
+
+  <p id="bookingMessage" style="margin-top:15px;font-weight:700;"></p>
+</form>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <span>Visit Us</span>
+      <h2>Contact ND Nails & Spa</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-box">
+        <h3>ND Nails & Spa</h3>
+        <p><b>Phone:</b> <a href="tel:+13052260678">(305) 226-0678</a></p>
+        <p><b>Address:</b><br>9971 W. Flagler St. Suite 130<br>Miami, FL 33174</p>
+        <br>
+        <p><b>Business Hours</b></p>
+        <p>Mon - Sat: 9:30 AM - 8:00 PM</p>
+        <p>Sun: 10:00 AM - 6:00 PM</p>
+        <br>
+        <a href="tel:+13052260678" class="btn btn-primary">Call Now</a>
+      </div>
+
+      <div class="map">
+        <iframe src="https://maps.google.com/maps?q=9971%20W%20Flagler%20St%20Suite%20130%20Miami%20FL%2033174&z=15&output=embed" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ND Nails & Spa. All Rights Reserved.</p>
+  <p>Professional Nail Care & Design • Miami, FL</p>
+</footer>
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const message = document.getElementById("bookingMessage");
+
+  message.innerText = "Submitting your booking...";
+
+  fetch("https://script.google.com/macros/s/AKfycbxMlA7IasvVUfZaKEkfJJWGYhFswESytufVboobsNKPK19Gi4POVYyi99auoGevuNMV/exec", {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(response => response.text())
+  .then(data => {
+    message.innerText = "Thank you! Your booking request has been submitted.";
+    form.reset();
+  })
+  .catch(error => {
+    message.innerText = "Sorry, something went wrong. Please call (305) 226-0678.";
+  });
+});
+</script>
+</body>
+</html>
